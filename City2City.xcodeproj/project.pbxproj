@@ -17,6 +17,8 @@
 		E697C38623624D89008F9FC2 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697C38523624D89008F9FC2 /* City.swift */; };
 		E697C38823624D99008F9FC2 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697C38723624D99008F9FC2 /* Weather.swift */; };
 		E697C38A23624F0F008F9FC2 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697C38923624F0F008F9FC2 /* Private.swift */; };
+		E697C38C23625233008F9FC2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697C38B23625233008F9FC2 /* Constant.swift */; };
+		E697C38E23625310008F9FC2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697C38D23625310008F9FC2 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E697C38523624D89008F9FC2 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		E697C38723624D99008F9FC2 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		E697C38923624F0F008F9FC2 /* Private.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
+		E697C38B23625233008F9FC2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		E697C38D23625310008F9FC2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 		E697C37C23624C7D008F9FC2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E697C38D23625310008F9FC2 /* NetworkService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				E697C38923624F0F008F9FC2 /* Private.swift */,
+				E697C38B23625233008F9FC2 /* Constant.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -215,7 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E697C38C23625233008F9FC2 /* Constant.swift in Sources */,
 				E697C36923624C67008F9FC2 /* ViewController.swift in Sources */,
+				E697C38E23625310008F9FC2 /* NetworkService.swift in Sources */,
 				E697C36F23624C67008F9FC2 /* City2City.xcdatamodeld in Sources */,
 				E697C38623624D89008F9FC2 /* City.swift in Sources */,
 				E697C36723624C67008F9FC2 /* AppDelegate.swift in Sources */,
