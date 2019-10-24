@@ -16,6 +16,7 @@
 		E697C38423624D50008F9FC2 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = E697C38323624D50008F9FC2 /* cities.json */; };
 		E697C38623624D89008F9FC2 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697C38523624D89008F9FC2 /* City.swift */; };
 		E697C38823624D99008F9FC2 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697C38723624D99008F9FC2 /* Weather.swift */; };
+		E697C38A23624F0F008F9FC2 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697C38923624F0F008F9FC2 /* Private.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E697C38323624D50008F9FC2 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cities.json; path = ../../../../../Training/Projects/City2City/City2City827/City2City827/cities.json; sourceTree = "<group>"; };
 		E697C38523624D89008F9FC2 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		E697C38723624D99008F9FC2 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		E697C38923624F0F008F9FC2 /* Private.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		E697C37D23624C86008F9FC2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E697C38923624F0F008F9FC2 /* Private.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				E697C38623624D89008F9FC2 /* City.swift in Sources */,
 				E697C36723624C67008F9FC2 /* AppDelegate.swift in Sources */,
 				E697C38823624D99008F9FC2 /* Weather.swift in Sources */,
+				E697C38A23624F0F008F9FC2 /* Private.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
