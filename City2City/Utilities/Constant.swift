@@ -40,6 +40,8 @@ struct IMAGE {
     static let LIGHTNING = #imageLiteral(resourceName: "noun_thunder_2908420")
     static let SNOW = #imageLiteral(resourceName: "noun_Snow_2908412")
     static let WINDY = #imageLiteral(resourceName: "noun_Wind_2908419")
+    static let ITEMS = #imageLiteral(resourceName: "noun_menu_2521956")
+    static let CANCEL = #imageLiteral(resourceName: "noun_wrong_1890791")
 }
 
 

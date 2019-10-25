@@ -17,6 +17,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var searchBarTableView: UITableView!
     @IBOutlet weak var searchBarTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var infoItemsButton: UIButton!
+    @IBOutlet weak var infoItemsViewBg: JSView!
     
     // Constraint
     @IBOutlet weak var weatherConditionTrailingConstraint: NSLayoutConstraint!
@@ -35,20 +37,40 @@ class HomeVC: UIViewController {
     var vm = ViewModel()
     var areWeatherTabOpen: Bool! {
         didSet {
-            UIView.animate(withDuration: areWeatherTabOpen ? 0.8 : 0.5) { [weak self] in
-                self?.weatherConditionTrailingConstraint.constant = self!.areWeatherTabOpen ? 20 : -200
-            }
+            // UI Views
+            let dampingRatio: CGFloat = 0.8
+            weatherConditionTrailingConstraint.constant = areWeatherTabOpen ? 20 : -200
             
-            UIView.animate(withDuration: areWeatherTabOpen ? 0.7 : 0.6) { [weak self] in
-                self?.temperatureTrailingConstraint.constant = self!.areWeatherTabOpen ? 20 : -200
-            }
+            UIView.animate(withDuration: areWeatherTabOpen ? 0.35 : 0.2, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                self?.view.layoutIfNeeded()
+            }, completion: nil)
             
-            UIView.animate(withDuration: areWeatherTabOpen ? 0.6 : 0.7) { [weak self] in
-                self?.humidityTrailingConstraint.constant = self!.areWeatherTabOpen ? 20 : -200
-            }
+            temperatureTrailingConstraint.constant = areWeatherTabOpen ? 20 : -200
             
-            UIView.animate(withDuration: areWeatherTabOpen ? 0.5 : 0.8) { [weak self] in
-                self?.windSpeedTrailingConstraint.constant = self!.areWeatherTabOpen ? 20 : -200
+            UIView.animate(withDuration: areWeatherTabOpen ? 0.3 : 0.25, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                self?.view.layoutIfNeeded()
+            }, completion: nil)
+            
+            humidityTrailingConstraint.constant = areWeatherTabOpen ? 20 : -200
+            
+            UIView.animate(withDuration: areWeatherTabOpen ? 0.25 : 0.3, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                self?.view.layoutIfNeeded()
+            }, completion: nil)
+            
+            windSpeedTrailingConstraint.constant = areWeatherTabOpen ? 20 : -200
+            
+            UIView.animate(withDuration: areWeatherTabOpen ? 0.2 : 0.35, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                self?.view.layoutIfNeeded()
+            }, completion: nil)
+            
+            // Action Button
+            infoItemsViewBg.isHidden = false
+            
+            let image = areWeatherTabOpen ? IMAGE.CANCEL : IMAGE.ITEMS
+            infoItemsButton.setImage(image, for: .normal)
+            
+            UIView.animate(withDuration: 0.6) { [weak self] in
+                self?.view.layoutIfNeeded()
             }
         }
     }
@@ -86,7 +108,7 @@ class HomeVC: UIViewController {
         
         // Weather tabs
         areWeatherTabOpen = false
-        self.view.layoutIfNeeded()
+        infoItemsViewBg.isHidden = true
         
     }
     
@@ -123,6 +145,11 @@ class HomeVC: UIViewController {
         // Append vm's fileteredCities array with correct cities
         vm.filterCities(with: text)
     }
+    
+    @IBAction func weatherInfoButtonClicked(_ sender: UIButton) {
+        areWeatherTabOpen = !areWeatherTabOpen
+    }
+    
     
 }
 

@@ -15,6 +15,6 @@ class JSView: UIView {
         
         FUNCTION.ADD_SHADOW(for: self)
         FUNCTION.ROUND_CORNERS(for: self)
-        alpha = 0.95
+        alpha = 0.92
     }
 }

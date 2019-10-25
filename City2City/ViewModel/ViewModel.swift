@@ -50,16 +50,13 @@ class ViewModel {
         }
     }
     
+    
     // MARK: - Fetch Weather
     func getWeather(for city: City) {
         
         NetworkService.shared.getWeather(for: city) { [weak self] (json) in
             if let response = json {
                 self?.weather = response
-                print(self?.weather.main)
-                print(self?.weather.temp)
-                print(self?.weather.humidity)
-                print(self?.weather.windSpeed)
             }
         }
     }

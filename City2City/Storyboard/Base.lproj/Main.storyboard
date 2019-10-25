@@ -38,15 +38,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="aag-nW-zVk"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="searchTextWasEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="fu9-51-PeO"/>
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GM-v2-bvG" userLabel="Main" customClass="JSView" customModule="City2City" customModuleProvider="target">
-                                <rect key="frame" x="244" y="617" width="150" height="45"/>
+                                <rect key="frame" x="244" y="557" width="150" height="45"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_Rain_2908413" translatesAutoresizingMaskIntoConstraints="NO" id="kVI-9k-Wll">
                                         <rect key="frame" x="10" y="0.0" width="45" height="45"/>
@@ -73,7 +73,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hv-rL-1RW" userLabel="Temperature" customClass="JSView" customModule="City2City" customModuleProvider="target">
-                                <rect key="frame" x="244" y="677" width="150" height="45"/>
+                                <rect key="frame" x="244" y="617" width="150" height="45"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_Temperature_798064" translatesAutoresizingMaskIntoConstraints="NO" id="udS-6P-0ra">
                                         <rect key="frame" x="10" y="0.0" width="45" height="45"/>
@@ -100,7 +100,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpc-Cc-JgU" userLabel="Humidity" customClass="JSView" customModule="City2City" customModuleProvider="target">
-                                <rect key="frame" x="244" y="737" width="150" height="45"/>
+                                <rect key="frame" x="244" y="677" width="150" height="45"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_humidity_2148359" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-6y-zO7">
                                         <rect key="frame" x="10" y="0.0" width="45" height="45"/>
@@ -127,7 +127,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIq-9t-E0o" userLabel="Wind Speed" customClass="JSView" customModule="City2City" customModuleProvider="target">
-                                <rect key="frame" x="244" y="797" width="150" height="45"/>
+                                <rect key="frame" x="244" y="737" width="150" height="45"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_Wind_2864369" translatesAutoresizingMaskIntoConstraints="NO" id="Hgn-iY-Coe">
                                         <rect key="frame" x="10" y="0.0" width="45" height="45"/>
@@ -153,14 +153,37 @@
                                     <constraint firstAttribute="width" constant="150" id="tS1-ZO-aba"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIU-NQ-iP5" userLabel="Action Button" customClass="JSView" customModule="City2City" customModuleProvider="target">
+                                <rect key="frame" x="349" y="797" width="45" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UuU-qf-On9">
+                                        <rect key="frame" x="3" y="3" width="39" height="39"/>
+                                        <state key="normal" image="noun_wrong_1890791"/>
+                                        <connections>
+                                            <action selector="weatherInfoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aDb-r4-c8h"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UuU-qf-On9" secondAttribute="trailing" constant="3" id="DH4-QL-0nJ"/>
+                                    <constraint firstItem="UuU-qf-On9" firstAttribute="leading" secondItem="QIU-NQ-iP5" secondAttribute="leading" constant="3" id="HCa-Ox-q1C"/>
+                                    <constraint firstAttribute="bottom" secondItem="UuU-qf-On9" secondAttribute="bottom" constant="3" id="bt7-9V-5D9"/>
+                                    <constraint firstAttribute="height" constant="45" id="iYa-wf-5Es"/>
+                                    <constraint firstAttribute="width" secondItem="QIU-NQ-iP5" secondAttribute="height" id="wba-og-7yN"/>
+                                    <constraint firstItem="UuU-qf-On9" firstAttribute="top" secondItem="QIU-NQ-iP5" secondAttribute="top" constant="3" id="wv7-dV-jcx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lpc-Cc-JgU" firstAttribute="top" secondItem="1hv-rL-1RW" secondAttribute="bottom" constant="15" id="2QS-zO-FO9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lpc-Cc-JgU" secondAttribute="trailing" constant="20" id="7XW-Yc-c64"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QIU-NQ-iP5" secondAttribute="bottom" constant="20" id="DeB-ZJ-rBa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3GM-v2-bvG" secondAttribute="trailing" constant="20" id="Gmc-6w-YJ9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1hv-rL-1RW" secondAttribute="trailing" constant="20" id="Hlb-SB-zU1"/>
                             <constraint firstItem="I0E-SN-3cP" firstAttribute="leading" secondItem="96b-kX-iiL" secondAttribute="leading" id="LKM-5J-9VD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QIU-NQ-iP5" secondAttribute="trailing" constant="20" id="Oiw-Vw-gVH"/>
                             <constraint firstItem="96b-kX-iiL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="Ucb-JC-Tiw"/>
                             <constraint firstItem="Hj8-yS-feN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="X2b-Dd-HPy"/>
                             <constraint firstItem="LIq-9t-E0o" firstAttribute="top" secondItem="lpc-Cc-JgU" secondAttribute="bottom" constant="15" id="fw6-gN-JdO"/>
@@ -168,7 +191,7 @@
                             <constraint firstItem="96b-kX-iiL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="lIb-jv-xV9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LIq-9t-E0o" secondAttribute="trailing" constant="20" id="mdd-qA-K5Q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="96b-kX-iiL" secondAttribute="trailing" constant="30" id="neF-jp-OMh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LIq-9t-E0o" secondAttribute="bottom" constant="20" id="nf4-el-0vj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LIq-9t-E0o" secondAttribute="bottom" constant="80" id="nf4-el-0vj"/>
                             <constraint firstItem="I0E-SN-3cP" firstAttribute="trailing" secondItem="96b-kX-iiL" secondAttribute="trailing" id="rip-Wt-JFL"/>
                             <constraint firstAttribute="trailing" secondItem="Hj8-yS-feN" secondAttribute="trailing" id="rmu-el-VpG"/>
                             <constraint firstAttribute="bottom" secondItem="Hj8-yS-feN" secondAttribute="bottom" id="uLg-Cj-km0"/>
@@ -180,6 +203,8 @@
                     <connections>
                         <outlet property="humidityLabel" destination="Nv0-jB-Ic0" id="PHE-5q-sBo"/>
                         <outlet property="humidityTrailingConstraint" destination="7XW-Yc-c64" id="wnI-0M-K6U"/>
+                        <outlet property="infoItemsButton" destination="UuU-qf-On9" id="A5Z-R3-PTb"/>
+                        <outlet property="infoItemsViewBg" destination="QIU-NQ-iP5" id="K4f-Gv-Er2"/>
                         <outlet property="mapView" destination="Hj8-yS-feN" id="wD7-sM-Yhe"/>
                         <outlet property="searchBar" destination="96b-kX-iiL" id="g8c-kY-j1m"/>
                         <outlet property="searchBarTableView" destination="I0E-SN-3cP" id="GH9-cg-WAH"/>
@@ -203,5 +228,6 @@
         <image name="noun_Temperature_798064" width="128" height="128"/>
         <image name="noun_Wind_2864369" width="128" height="128"/>
         <image name="noun_humidity_2148359" width="128" height="128"/>
+        <image name="noun_wrong_1890791" width="100" height="100"/>
     </resources>
 </document>
