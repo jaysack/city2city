@@ -12,23 +12,46 @@ import MapKit
 class HomeVC: UIViewController {
 
     // MARK: - IBOutlets
+    // UI Elements
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var searchBarTableView: UITableView!
     @IBOutlet weak var searchBarTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var weatherMainImageView: UIImageView!
-    @IBOutlet weak var weatherTemperatureView: UIView!
-    @IBOutlet weak var weatherHumidityView: UIView!
-    @IBOutlet weak var weatherWindSpeedView: UIView!
+    // Constraint
+    @IBOutlet weak var weatherConditionTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var temperatureTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var humidityTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var windSpeedTrailingConstraint: NSLayoutConstraint!
     
+    // Labels
+    @IBOutlet weak var weatherConditionImage: UIImageView!
+    @IBOutlet weak var weatherConditionLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
-    @IBOutlet weak var windspeedLabel: UILabel!
-    
+    @IBOutlet weak var windSpeedLabel: UILabel!
     
     // MARK: - Variables
     var vm = ViewModel()
+    var areWeatherTabOpen: Bool! {
+        didSet {
+            UIView.animate(withDuration: areWeatherTabOpen ? 0.8 : 0.5) { [weak self] in
+                self?.weatherConditionTrailingConstraint.constant = self!.areWeatherTabOpen ? 20 : -200
+            }
+            
+            UIView.animate(withDuration: areWeatherTabOpen ? 0.7 : 0.6) { [weak self] in
+                self?.temperatureTrailingConstraint.constant = self!.areWeatherTabOpen ? 20 : -200
+            }
+            
+            UIView.animate(withDuration: areWeatherTabOpen ? 0.6 : 0.7) { [weak self] in
+                self?.humidityTrailingConstraint.constant = self!.areWeatherTabOpen ? 20 : -200
+            }
+            
+            UIView.animate(withDuration: areWeatherTabOpen ? 0.5 : 0.8) { [weak self] in
+                self?.windSpeedTrailingConstraint.constant = self!.areWeatherTabOpen ? 20 : -200
+            }
+        }
+    }
     
     
     // MARK: - Lifecycle Methods
@@ -61,13 +84,17 @@ class HomeVC: UIViewController {
         FUNCTION.ROUND_CORNERS(for: searchBarTableView)
         searchBarTableViewHeight.constant = 45
         
+        // Weather tabs
+        areWeatherTabOpen = false
+        self.view.layoutIfNeeded()
+        
     }
     
     fileprivate func zoomMap(to city: City) {
         
         // Zoom to city coordinates
         let center = CLLocationCoordinate2D(latitude: city.coordinates.latitude, longitude: city.coordinates.longitude)
-        let radius: CLLocationDistance = 12000
+        let radius: CLLocationDistance = 8000
         let location = MKCoordinateRegion(center: center, latitudinalMeters: radius, longitudinalMeters: radius)
         
         // Add annotation
@@ -114,17 +141,22 @@ extension HomeVC: ViewModelDelegate {
     }
     
     func updateWeather() {
-        #warning("TO-DO: Update weather here !")
         
-        // Description
+        // Description Image
         switch vm.weather.main {
         case "Rain":
-            weatherMainImageView.image = IMAGE.RAIN
+            weatherConditionImage.image = IMAGE.RAIN
+        case "Clouds":
+            weatherConditionImage.image = IMAGE.CLOUD
         default:
-            weatherMainImageView.image = IMAGE.SUNNY
+            weatherConditionImage.image = IMAGE.SUNNY
         }
         
-        
+        // Other Labels
+        weatherConditionLabel.text = vm.weather.main
+        temperatureLabel.text = "\(String(format: "%.1f", vm.weather.temp))°F"
+        humidityLabel.text = "\(vm.weather.humidity)%"
+        windSpeedLabel.text = "\(String(format: "%.1f", vm.weather.windSpeed!)) mph"
     }
     
 }
@@ -167,6 +199,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         vm.getWeather(for: city)
         
         // Display weather info
+        areWeatherTabOpen = true
         
         // Reset Search Bar
         resetSearchBar()

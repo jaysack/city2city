@@ -33,10 +33,13 @@ struct SHADOW {
 }
 
 struct IMAGE {
-    static let SUNNY = #imageLiteral(resourceName: "noun_sun_673878")
-    static let PARTLY_SUNNY = #imageLiteral(resourceName: "noun_Partly Sunny_673913")
-    static let RAIN = #imageLiteral(resourceName: "noun_rain cloud_673900")
-    static let LIGHTNING = #imageLiteral(resourceName: "noun_storm cloud_673880")
+    static let SUNNY = #imageLiteral(resourceName: "noun_sun_15579")
+    static let CLOUD = #imageLiteral(resourceName: "noun_Cloud_2908402")
+    static let PARTLY_SUNNY = #imageLiteral(resourceName: "noun_season_2916739")
+    static let RAIN = #imageLiteral(resourceName: "noun_Rain_2908413")
+    static let LIGHTNING = #imageLiteral(resourceName: "noun_thunder_2908420")
+    static let SNOW = #imageLiteral(resourceName: "noun_Snow_2908412")
+    static let WINDY = #imageLiteral(resourceName: "noun_Wind_2908419")
 }
 
 
