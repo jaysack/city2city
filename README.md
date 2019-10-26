@@ -16,7 +16,7 @@ To get a free **Open Weather API** `API key` and implement it in your applicatio
 
 
 ## Usage
-City2City uses a private Open Weather API key not provided in this repository, as a result running this project without another `api key` will **not** work. To fix this, simpy get a new `api key` from [Open Weather](https://openweathermap.org/appid) and replace `API.KEY.OPEN_WEATHER` in `Constant.swift` with that new key
+**City2City** uses a private **Open Weather API** key not provided in this repository, as a result running this project without another `api key` **will NOT work**. To fix this, simpy get a new `api key` from [Open Weather](https://openweathermap.org/appid) and replace `API.KEY.OPEN_WEATHER` in `Constant.swift` with that new key
 
 ```swift
 // MARK: - Variable(s)
