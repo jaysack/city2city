@@ -11,8 +11,15 @@ import UIKit
 // MARK: - Variable(s)
 struct ENDPOINT {
     
-    static let BASE = "https://api.openweathermap.org/data/2.5/weather"
-    static let WEATHER = "\(ENDPOINT.BASE)?APPID=\(API.KEY)&units=imperial"
+    struct WEATHER {
+        static let BASE = "https://api.openweathermap.org/data/2.5/weather"
+        static let DEFAULT = "\(ENDPOINT.WEATHER.BASE)?APPID=\(API.KEY.OPEN_WEATHER)&units=imperial"
+    }
+    
+    struct PHOTO {
+        static let BASE = "https://api.unsplash.com/search/photos"
+        static let DEFAULT = "\(ENDPOINT.PHOTO.BASE)?per_page=1&orientation=landscape"
+    }
 }
 
 struct COLOR {
@@ -20,6 +27,11 @@ struct COLOR {
     static let SUPPORTING = UIColor.darkGray
     static let OTHER = UIColor.lightGray
     static let SHADOW = UIColor.black.cgColor
+    
+    struct GRADIENT {
+        static let PRIMARY = COLOR.PRIMARY.withAlphaComponent(0.7)
+        static let TRANSPARENT = COLOR.PRIMARY.withAlphaComponent(0.15)
+    }
 }
 
 struct CORNER {
@@ -40,6 +52,7 @@ struct IMAGE {
     static let LIGHTNING = #imageLiteral(resourceName: "noun_thunder_2908420")
     static let SNOW = #imageLiteral(resourceName: "noun_Snow_2908412")
     static let WINDY = #imageLiteral(resourceName: "noun_Wind_2908419")
+    static let WIND = #imageLiteral(resourceName: "noun_Wind_2864369")
     static let ITEMS = #imageLiteral(resourceName: "noun_menu_2521956")
     static let CANCEL = #imageLiteral(resourceName: "noun_wrong_1890791")
 }

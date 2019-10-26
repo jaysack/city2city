@@ -102,6 +102,7 @@ class HomeVC: UIViewController {
         searchBar.text = ""
         vm.filteredCities = [City]()
         searchBarTableView.reloadData()
+        searchBar.resignFirstResponder()
     }
     
     fileprivate func setMenuButton() {
@@ -155,6 +156,13 @@ class HomeVC: UIViewController {
         areWeatherTabOpen = !areWeatherTabOpen
     }
     
+    @IBAction func searchBarInFocus(_ sender: UITextField) {
+        
+        // Open iOS keyboard
+        searchBar.becomeFirstResponder()
+    }
+    
+    
 }
 
 
@@ -179,8 +187,8 @@ extension HomeVC: ViewModelDelegate {
             weatherConditionImage.image = IMAGE.RAIN
         case "Clouds":
             weatherConditionImage.image = IMAGE.CLOUD
-        case "Haze":
-            weatherConditionImage.image = IMAGE.WINDY
+        case "Haze", "Smoke":
+            weatherConditionImage.image = IMAGE.WIND
         default:
             weatherConditionImage.image = IMAGE.SUNNY
         }

@@ -15,6 +15,7 @@ class CityCell: UITableViewCell {
     @IBOutlet weak var populationLabel: UILabel!
     @IBOutlet weak var tintView: UIView!
     
+    
     // MARK: - Variables
     static let identifier = "CityCell"
     
@@ -24,16 +25,6 @@ class CityCell: UITableViewCell {
             populationLabel.text = "Population: \(city.population.addCommas ?? "N/A")"
         }
     }
-    
-    override var isSelected: Bool {
-        didSet {
-            UIView.animate(withDuration: 0.15, animations: { [weak self] in
-               self?.alpha = 0.5
-            }) { [weak self] (true) in
-                self?.alpha = 0.7
-            }
-        }
-    }
 
     
     // MARK: - Awake From Nib
@@ -41,10 +32,6 @@ class CityCell: UITableViewCell {
         super.awakeFromNib()
         
         FUNCTION.ROUND_CORNERS(for: tintView)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
 }

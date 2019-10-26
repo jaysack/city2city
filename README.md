@@ -2,6 +2,7 @@
 
 ## Overview
 **City2City** is a simple iOS app leveraging **Open Weather API** to pull live weather information about major U.S. cities
+![City2City Demo](demo.gif)
 
 ## Development
 **City2City** was developed in `Swift 5.0` and uses Apple's framework `MapKit`, `MKAnnotation`, as well as `CoreLocation` to pin cities to Apple's interactive map

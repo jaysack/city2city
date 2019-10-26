@@ -23,16 +23,16 @@
                         <rect key="frame" x="5" y="10" width="400" height="120.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pD0-K5-yWS">
-                                <rect key="frame" x="10" y="64.5" width="155" height="46"/>
+                                <rect key="frame" x="10" y="64.5" width="380" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fremont, California" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYP-YD-sbe">
-                                        <rect key="frame" x="0.0" y="0.0" width="155" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Population: 234,962" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fb-ZA-pqk">
-                                        <rect key="frame" x="0.0" y="25.5" width="155" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="380" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -42,6 +42,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pD0-K5-yWS" secondAttribute="trailing" constant="10" id="JZb-4H-MER"/>
                             <constraint firstItem="pD0-K5-yWS" firstAttribute="leading" secondItem="PHw-36-Rgi" secondAttribute="leading" constant="10" id="fh0-54-KTh"/>
                             <constraint firstAttribute="bottom" secondItem="pD0-K5-yWS" secondAttribute="bottom" constant="10" id="yHj-la-jWJ"/>
                         </constraints>

@@ -19,7 +19,7 @@ final class NetworkService {
     func getWeather(for city: City, completion: @escaping (Weather?) -> Void) {
         
         // Set URL
-        guard let url = URL(string: "\(ENDPOINT.WEATHER)&lat=\(city.coordinates.latitude)&lon=\(city.coordinates.longitude)") else {
+        guard let url = URL(string: "\(ENDPOINT.WEATHER.DEFAULT)&lat=\(city.coordinates.latitude)&lon=\(city.coordinates.longitude)") else {
             print("JSError: Endpoint not valid")
             return
         }

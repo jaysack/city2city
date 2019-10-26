@@ -42,6 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="searchBarInFocus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ys-dG-P4L"/>
                                     <action selector="searchTextWasEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="fu9-51-PeO"/>
                                 </connections>
                             </textField>
