@@ -15,11 +15,6 @@ struct ENDPOINT {
         static let BASE = "https://api.openweathermap.org/data/2.5/weather"
         static let DEFAULT = "\(ENDPOINT.WEATHER.BASE)?APPID=\(API.KEY.OPEN_WEATHER)&units=imperial"
     }
-    
-    struct PHOTO {
-        static let BASE = "https://api.unsplash.com/search/photos"
-        static let DEFAULT = "\(ENDPOINT.PHOTO.BASE)?per_page=1&orientation=landscape"
-    }
 }
 
 struct COLOR {
