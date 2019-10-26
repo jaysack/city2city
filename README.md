@@ -3,7 +3,7 @@
 ## Overview
 **City2City** is a simple iOS app leveraging **Open Weather API** to pull live weather information about major U.S. cities
 
-<img src="Demo/demo1.gif" width="250" height="500">   <img src="Demo/demo2.gif" width="250" height="500">   <img src="Demo/demo.gif" width="250" height="500">
+<img src="Demo/demo1.gif" width="250" height="500">   <img src="Demo/demo2.gif" width="250" height="500">   <img src="Demo/demo3.gif" width="250" height="500">
 
 
 ## Development
