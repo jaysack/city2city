@@ -37,41 +37,9 @@ class HomeVC: UIViewController {
     var vm = ViewModel()
     var areWeatherTabOpen: Bool! {
         didSet {
-            // UI Views
-            let dampingRatio: CGFloat = 0.8
-            weatherConditionTrailingConstraint.constant = areWeatherTabOpen ? 20 : -200
-            
-            UIView.animate(withDuration: areWeatherTabOpen ? 0.35 : 0.2, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                self?.view.layoutIfNeeded()
-            }, completion: nil)
-            
-            temperatureTrailingConstraint.constant = areWeatherTabOpen ? 20 : -200
-            
-            UIView.animate(withDuration: areWeatherTabOpen ? 0.3 : 0.25, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                self?.view.layoutIfNeeded()
-            }, completion: nil)
-            
-            humidityTrailingConstraint.constant = areWeatherTabOpen ? 20 : -200
-            
-            UIView.animate(withDuration: areWeatherTabOpen ? 0.25 : 0.3, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                self?.view.layoutIfNeeded()
-            }, completion: nil)
-            
-            windSpeedTrailingConstraint.constant = areWeatherTabOpen ? 20 : -200
-            
-            UIView.animate(withDuration: areWeatherTabOpen ? 0.2 : 0.35, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                self?.view.layoutIfNeeded()
-            }, completion: nil)
-            
-            // Action Button
-            infoItemsViewBg.isHidden = false
-            
-            let image = areWeatherTabOpen ? IMAGE.CANCEL : IMAGE.ITEMS
-            infoItemsButton.setImage(image, for: .normal)
-            
-            UIView.animate(withDuration: 0.6) { [weak self] in
-                self?.view.layoutIfNeeded()
-            }
+        
+            toggleMenuItems()
+            setMenuButton()
         }
     }
     
@@ -98,6 +66,7 @@ class HomeVC: UIViewController {
     }
     
     fileprivate func setupUI() {
+        
         // Search bar
         FUNCTION.ADD_SHADOW(for: searchBar)
         FUNCTION.ROUND_CORNERS(for: searchBar)
@@ -116,7 +85,7 @@ class HomeVC: UIViewController {
         
         // Zoom to city coordinates
         let center = CLLocationCoordinate2D(latitude: city.coordinates.latitude, longitude: city.coordinates.longitude)
-        let radius: CLLocationDistance = 8000
+        let radius: CLLocationDistance = 7000
         let location = MKCoordinateRegion(center: center, latitudinalMeters: radius, longitudinalMeters: radius)
         
         // Add annotation
@@ -135,11 +104,47 @@ class HomeVC: UIViewController {
         searchBarTableView.reloadData()
     }
     
+    fileprivate func setMenuButton() {
+        // Display button
+        infoItemsViewBg.isHidden = false
+        
+        // Pick right image
+        let image = areWeatherTabOpen ? IMAGE.CANCEL : IMAGE.ITEMS
+        infoItemsButton.setImage(image, for: .normal)
+        
+        // Animate UI changes
+        UIView.animate(withDuration: 0.6) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    fileprivate func toggleMenuItems() {
+        
+        setConstraint(constraint: weatherConditionTrailingConstraint, FadeInDuration: 0.35, fadeOutDuration: 0.2)
+        setConstraint(constraint: temperatureTrailingConstraint, FadeInDuration: 0.3, fadeOutDuration: 0.25)
+        setConstraint(constraint: humidityTrailingConstraint, FadeInDuration: 0.25, fadeOutDuration: 0.3)
+        setConstraint(constraint: windSpeedTrailingConstraint, FadeInDuration: 0.2, fadeOutDuration: 0.35)
+    }
+    
+    fileprivate func setConstraint(constraint: NSLayoutConstraint, FadeInDuration: Double, fadeOutDuration: Double) {
+        
+        // Set damping ratio
+        let dampingRatio: CGFloat = 0.8
+        
+        // Change constraint
+        constraint.constant = areWeatherTabOpen ? 20 : -200
+        
+        // Animate UI changes
+        UIView.animate(withDuration: areWeatherTabOpen ? FadeInDuration : fadeOutDuration, delay: 0, usingSpringWithDamping: dampingRatio, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+            }, completion: nil)
+    }
+    
     
     // MARK: - IBActions
     @IBAction func searchTextWasEdited(_ sender: UITextField) {
         
-        // Cancel if text is empty
+        // Unwrap text optional
         guard let text = sender.text else { return }
         
         // Append vm's fileteredCities array with correct cities
@@ -149,7 +154,6 @@ class HomeVC: UIViewController {
     @IBAction func weatherInfoButtonClicked(_ sender: UIButton) {
         areWeatherTabOpen = !areWeatherTabOpen
     }
-    
     
 }
 
@@ -175,6 +179,8 @@ extension HomeVC: ViewModelDelegate {
             weatherConditionImage.image = IMAGE.RAIN
         case "Clouds":
             weatherConditionImage.image = IMAGE.CLOUD
+        case "Haze":
+            weatherConditionImage.image = IMAGE.WINDY
         default:
             weatherConditionImage.image = IMAGE.SUNNY
         }
@@ -193,6 +199,8 @@ extension HomeVC: ViewModelDelegate {
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // Only display 8 suggestions or less
         return vm.filteredCities.count > 8 ? 8 : vm.filteredCities.count + 1
     }
     
